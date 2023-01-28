@@ -1,7 +1,6 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { useEffect, useState } from 'react';
  
  
 // TODO: Add SDKs for Firebase products that you want to use
@@ -9,12 +8,12 @@ import { useEffect, useState } from 'react';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAtQmdDgUVwOnGn-7K7obsVknz57Sj9U64",
-  authDomain: "manufacturer-13f40.firebaseapp.com",
-  projectId: "manufacturer-13f40",
-  storageBucket: "manufacturer-13f40.appspot.com",
-  messagingSenderId: "820539459142",
-  appId: "1:820539459142:web:f926c99656ce6b9fe32c47"
+  apiKey: "AIzaSyA6JRcB6OYVOQCDvdb_av4yQqnka7l232E",
+  authDomain: "mb10-ecommerce.firebaseapp.com",
+  projectId: "mb10-ecommerce",
+  storageBucket: "mb10-ecommerce.appspot.com",
+  messagingSenderId: "1024732310347",
+  appId: "1:1024732310347:web:3d894ecf34ae4b2313d6ce"
 };
 
 

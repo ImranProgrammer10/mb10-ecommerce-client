@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "name": "Auto Clutch & Brake",
+        "img": "https://preview.themeforest.net/item/lukas-car-parts-store-ecommerce-html-template/full_screen_preview/24049131?_ga=2.76449425.546254352.1662094515-1959330868.1648980912",
+        "price": 165
+    },
+    {
+        "id": 2,
+        "name": "Leather Steering Wheel",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-details-3.png",
+        "price": 615
+    },
+    {
+        "id": 3,
+        "name": "Hanging 4K Camera",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-details-4.png",
+        "price": 65
+    },
+    {
+        "id": 4,
+        "name": "17 inch Rims 8 Lug",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-details-2.png",
+        "price": 165
+    },
+    {
+        "id": 5,
+        "name": "Locking Hub Diagram",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-details-5.png",
+        "price": 165
+    },
+    {
+        "id": 6,
+        "name": "Auto Clutch & Brake",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-6.png",
+        "price": 320
+    },
+    {
+        "id": 7,
+        "name": "Leather Steering Wheel",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-8.png",
+        "price": 250
+    },
+    {
+        "id": 8,
+        "name": "Leather Steering Wheel",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-9.png",
+        "price": 180
+    },
+    {
+        "id": 9,
+        "name": "Locking Hub Diagram",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-14.png",
+        "price": 165
+    },
+    {
+        "id": 10,
+        "name": "Leather Steering Wheel",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-15.png",
+        "price": 165
+    },
+    {
+        "id": 11,
+        "name": "Locking Hub Diagram",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-12.png",
+        "price": 1200
+    },
+    {
+        "id": 12,
+        "name": "17 inch Rims 8 Lug",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-10.png",
+        "price": 165
+    },
+    {
+        "id": 13,
+        "name": "17 inch Rims 8 Lug",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-13.png",
+        "price": 265
+    },
+    {
+        "id": 14,
+        "name": "Hanging 4K Camera",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-7.png",
+        "price": 165
+    },
+    {
+        "id": 15,
+        "name": "17 inch Rims 8 Lug",
+        "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-11.png",
+        "price": 165
+    }
+
+]

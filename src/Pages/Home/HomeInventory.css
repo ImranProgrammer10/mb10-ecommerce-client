@@ -1,0 +1,27 @@
+.imag{
+    height: 468px;
+    width: 468px;
+}
+.imgOut{
+    height: 468px;
+    width: 588px;
+
+}
+.des{
+    width: 578px;
+}
+
+@media only screen and (max-width:576px){
+ .imag{
+    height: 311px;
+    width: 311px;
+ }   
+ .imgOut{
+    height: 311px;
+    width: 311px;
+ }
+ .des{
+    width: 160px;
+
+ }   
+}

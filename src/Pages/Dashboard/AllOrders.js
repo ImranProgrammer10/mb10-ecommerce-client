@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { FaProductHunt } from 'react-icons/fa';
-import { AiFillDelete } from 'react-icons/ai';
-import useAdmin from '../../hooks/useAdmin';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { AiFillDelete } from 'react-icons/ai';
 import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
 import Loading from './../Shared/Loading';
 
 const AllOrders = () => {
@@ -14,14 +13,14 @@ const AllOrders = () => {
     const [users, setUsers] = useState([]);
  
     useEffect(() => {
-        fetch('http://localhost:5000/order/admin')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/admin')
             .then(res => res.json()).then(data => setOrders(data));
     }, [reload])
     // delete 
     const handleDelete = id => {
         const procced = window.confirm('Confirm Now');
         if (procced) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -34,7 +33,7 @@ const AllOrders = () => {
 
     
     useEffect(() => {
-        fetch('http://localhost:5000/shipping')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/shipping')
           
        
             .then(res => res.json()).then(data =>  setUsers(data))

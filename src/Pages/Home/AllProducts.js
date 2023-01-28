@@ -5,7 +5,7 @@ const AllProducts = () => {
     const navigate = useNavigate();
     const [products,setProducts]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/product')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product')
         .then(res=>res.json()).then(data=>setProducts(data))
     },[])
 

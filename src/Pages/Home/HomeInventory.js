@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import './HomeInventory.css';
-import { Link, useParams } from 'react-router-dom';
-import { BsPlusLg } from 'react-icons/bs';
-import Footer from '../Shared/Footer';
-import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { BsPlusLg } from 'react-icons/bs';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Footer from '../Shared/Footer';
+import './HomeInventory.css';
 
 const HomeInventory = () => {
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/homeProduct/${id}`)
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/homeProduct/${id}`)
             .then(res => res.json()).then(data => setProduct(data))
     }, [])
 
@@ -39,7 +39,7 @@ const HomeInventory = () => {
             date: date
         };
         console.log(data)
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

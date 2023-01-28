@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsPlusLg } from 'react-icons/bs';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Footer from './Footer';
 
 const Inventory = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [user, loading, error] = useAuthState(auth);
     const [product, setProduct] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product/${id}`)
             .then(res => res.json()).then(data => setProduct(data))
     }, [])
 
@@ -36,7 +37,7 @@ const Inventory = () => {
             img: product.img,
             date: date
         };
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -51,6 +52,7 @@ const Inventory = () => {
                 console.error('Error:', error);
 
             });
+            navigate('/dashboard/order');
 
     }
 

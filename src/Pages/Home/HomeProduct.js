@@ -6,7 +6,7 @@ const HomeProduct = () => {
     // get for product 
     const [hProducts, setHproducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/homeProduct')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/homeProduct')
             .then(res => res.json())
             .then(data => setHproducts(data))
     }, [])

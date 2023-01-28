@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
@@ -9,7 +8,7 @@ const BillingAddress = () => {
     const [reload, setReload]=useState(false);
     const [users, setUsers] = useState({});
     useEffect(() => {
-        fetch('http://localhost:5000/shipping')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/shipping')
           
        
             .then(res => res.json()).then(data =>  setUsers(data))

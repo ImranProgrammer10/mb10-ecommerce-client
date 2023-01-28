@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const Reviews = () => {
     const [user] = useAuthState(auth);
@@ -18,7 +18,7 @@ const Reviews = () => {
             rating: rating
         }
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/reviews/${id}`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

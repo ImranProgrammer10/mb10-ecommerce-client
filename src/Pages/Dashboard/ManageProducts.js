@@ -1,13 +1,10 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 const ManageProducts = () => {
     const [products,setProducts]=useState([]);
     const [reload, setReload] = useState(false);
     useEffect(()=>{
-        fetch('http://localhost:5000/product')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product')
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
@@ -20,7 +17,7 @@ const ManageProducts = () => {
         console.log(id)
         const procced = window.confirm('Confirm Now');
         if (procced) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

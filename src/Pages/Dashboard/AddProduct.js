@@ -14,7 +14,7 @@ const AddProduct = () => {
             img:img,
             price:price
         };
-        fetch(`http://localhost:5000/product`, {
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

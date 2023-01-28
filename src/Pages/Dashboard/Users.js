@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { AiFillDelete } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
-import { toast } from 'react-toastify';
 const Users = () => {
 
     const [users, setUsers] = useState([]);
     const [reload, setReload] = useState(false);
     const [user, loading] = useAuthState(auth);
+    const [phone, setPhone] = useState([]);
+    
     useEffect(() => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +29,7 @@ const Users = () => {
     // makeadmin 
     const makeAdmin = (email) => {
         setReload(true);
-        fetch(`http://localhost:5000/user/admin/${email}`,{
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/user/admin/${email}`,{
             method: 'PUT',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,7 +52,7 @@ const Users = () => {
     const userDelete = id => {
         const procced = window.confirm('Delete your coustomer');
         if (procced) {
-            const url = `http://localhost:5000/users/${id}`;
+            const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/users/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -62,7 +64,12 @@ const Users = () => {
 
     }
 
-
+    useEffect(() => {
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/shipping')
+          
+       
+            .then(res => res.json()).then(data =>  setPhone(data))
+    }, [reload])
 
     return (
         <div>
@@ -74,6 +81,7 @@ const Users = () => {
 
                             <th>Email</th>
 
+                            <th>Phone</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -91,6 +99,11 @@ const Users = () => {
                                         </div>
                                     </div>
                                 </td>
+                                {
+            phone.map(phone=>
+            <td>{phone.phone}</td>
+            )
+        }
                                 <td>
                                     {order.role !== 'admin' && <button onClick={()=>makeAdmin(order.email)} className="btn btn-ghost bg-primary btn-xs">Make Admin</button>}
                                 </td>

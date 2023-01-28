@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CoustomerReviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/reviews')
             .then(res => res.json()).then(data => setReviews(data))
     }, [])
     return (

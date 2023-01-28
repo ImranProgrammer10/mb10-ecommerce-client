@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import pro from '../../../src/assets/icon/profile1.png';
+import { toast } from 'react-toastify';
+import edu from '../../../src/assets/icon/edu.png';
 import email from '../../../src/assets/icon/email.png';
+import link from '../../../src/assets/icon/linkden.png';
 import location from '../../../src/assets/icon/location.png';
 import phone from '../../../src/assets/icon/phone.png';
-import edu from '../../../src/assets/icon/edu.png';
-import link from '../../../src/assets/icon/linkden.png';
-import { toast } from 'react-toastify';
+import pro from '../../../src/assets/icon/profile1.png';
+import auth from '../../firebase.init';
 
 
 const Profile = () => {
@@ -16,7 +16,7 @@ const Profile = () => {
     const [profile, setProfile] = useState([])
     const [reload,setReload] = useState(false);
     useEffect(() => {
-        const url = `http://localhost:5000/profile?email=${user.email}`;
+        const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/profile?email=${user.email}`;
         fetch(url).then(res => res.json()).then(data => setProfile(data))
     }, [reload])
 
@@ -36,7 +36,7 @@ const Profile = () => {
             link: link
         };
         // put method 
-        const url = `http://localhost:5000/profile/${email}`
+        const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/profile/${email}`
         console.log(url)
         fetch(url, {
             method: 'PUT', // or 'PUT'

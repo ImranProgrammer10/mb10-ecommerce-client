@@ -1,10 +1,9 @@
- import React from 'react'
+ import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import { useNavigate, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { signOut } from 'firebase/auth';
 import { AiFillDelete } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
  
  const Orders = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -12,7 +11,7 @@ import { AiFillDelete } from 'react-icons/ai';
     const [reload, setReload] = useState(false);
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user.email}`, {
+        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order?email=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,7 +37,7 @@ import { AiFillDelete } from 'react-icons/ai';
         console.log(id)
         const procced = window.confirm('Confirm Now');
         if (procced) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

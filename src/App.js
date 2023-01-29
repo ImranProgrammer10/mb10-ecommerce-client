@@ -1,37 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import HomeInventory from './Pages/Home/HomeInventory';
-import Headers from './Pages/Home/Headers';
-import Inventory from './Pages/Shared/Inventory';
-import About from './Pages/About/About';
-import SignIn from './Pages/SignLog/SignIn';
-import NotFound from './Pages/Shared/NotFound';
-import SignUp from './Pages/SignLog/SignUp';
-import Shop from './Pages/Shop/Shop';
-import RequiredAuth from './Pages/RequiredAuth';
-import Dhashboard from './Pages/Dashboard/Dhashboard';
-import MyOrders from './Pages/Dashboard/MyOrders';
-import Reviews from './Pages/Dashboard/Reviews';
-import Profile from './Pages/Dashboard/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
+import About from './Pages/About/About';
 import AllOrders from './Pages/Dashboard/AllOrders';
+import Dhashboard from './Pages/Dashboard/Dhashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import Profile from './Pages/Dashboard/Profile';
+import Reviews from './Pages/Dashboard/Reviews';
+import Headers from './Pages/Home/Headers';
+import Home from './Pages/Home/Home';
+import RequiredAuth from './Pages/RequiredAuth';
+import Inventory from './Pages/Shared/Inventory';
+import NotFound from './Pages/Shared/NotFound';
+import Shop from './Pages/Shop/Shop';
+import SignIn from './Pages/SignLog/SignIn';
+import SignUp from './Pages/SignLog/SignUp';
  
-import Payment from './Pages/Dashboard/Payment';
-import CoustomerReviews from './Pages/Dashboard/CoustomerReviews';
 import Blog from './Pages/Blog';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import CoustomerReviews from './Pages/Dashboard/CoustomerReviews';
+import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import AllProducts from './Pages/Home/AllProducts';
-import Orders from './Pages/Orders/Orders';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import firebaseui from 'firebaseui';
-import firebase from '@firebase/app-compat';
-import BillingAddress from './Pages/Dashboard/BillingAddress';
+ 
 import ManageProducts from './Pages/Dashboard/ManageProducts';
  
  
@@ -46,12 +38,12 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='blog' element={<Blog></Blog>}></Route>
-        <Route path='/address' element={<BillingAddress></BillingAddress>}></Route>
-        <Route path='/homeInventory/:id' element={
+      
+        {/* <Route path='/homeInventory/:id' element={
           <RequiredAuth>
             <HomeInventory></HomeInventory>
           </RequiredAuth>
-        }></Route>
+        }></Route> */}
         <Route path='/inventory/:id' element={
         <RequiredAuth>
           <Inventory></Inventory>

@@ -13,7 +13,7 @@ const HomeProduct = () => {
 
     // go to inventory id route 
     const handleGo = (id) => {
-        navigate(`/homeInventory/${id}`)
+        navigate(`/inventory/${id}`)
     }
 
     return (

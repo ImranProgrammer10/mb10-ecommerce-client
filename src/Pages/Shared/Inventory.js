@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+ 
 import { BsPlusLg } from 'react-icons/bs';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
+import { Link, useParams } from 'react-router-dom';
+ 
+import BookingModal from '../Home/BookingModal';
 import Footer from './Footer';
 
 const Inventory = () => {
-    const navigate = useNavigate();
+     
     const { id } = useParams();
-    const [user, loading, error] = useAuthState(auth);
+   
     const [product, setProduct] = useState([])
+    const [result,setResult]=useState(null);
     useEffect(() => {
         fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/product/${id}`)
             .then(res => res.json()).then(data => setProduct(data))
@@ -22,39 +23,41 @@ const Inventory = () => {
     if (counter <= 1) {
         deccrementCounter = () => setCounter(1);
     }
+    
 
     // add to cart 
-    const addToCart = event => {
-        event.preventDefault();
-        const count = event.target.count.value;
-        let today = new Date();
-        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        const data = {
-            name: product.name,
-            description: product.description,
-            count: count,
-            email: user.email,
-            img: product.img,
-            date: date
-        };
-        fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`, {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => response.json())
-            .then(data => {
-                toast('order confirm')
-            })
-            .catch((error) => {
-                console.error('Error:', error);
 
-            });
-            navigate('/dashboard/order');
+    // const addToCart = event => {
+    //     event.preventDefault();
+    //     const count = event.target.count.value;
+    //     let today = new Date();
+    //     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    //     const data = {
+    //         name: product.name,
+    //         description: product.description,
+    //         count: count,
+    //         email: user.email,
+    //         img: product.img,
+    //         date: date
+    //     };
+    //     fetch(`https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/${id}`, {
+    //         method: 'POST', // or 'PUT'
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data),
+    //     })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             toast('order confirm')
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error:', error);
 
-    }
+    //         });
+    //         navigate('/dashboard/order');
+
+    // }
 
     return (
         <div>
@@ -76,7 +79,7 @@ const Inventory = () => {
                     <div class="card-body">
                         <h1 className='font-bold lg:text-4xl text-2xl'>{product.name}</h1>
                         <p> <span className='font-bold text-xl'>Price:</span> <span className='font-bold'> ${product.price}</span></p>
-                        <p className='mb-8'>{product.description}</p>
+                        <p className='font-bold text-xl'>Description: {product.description}</p>
 
                         {/* table  */}
 
@@ -100,11 +103,17 @@ const Inventory = () => {
                                 </tbody>
                             </table>
                         </div> */}
+
+                 { result &&  <BookingModal product={product}
+                 counter={counter}
+                 setResult={setResult}
+                   result={result} 
+                   ></BookingModal>}
                         
 
                         {/* add to cart buttton */}
 
-                        <form onSubmit={addToCart}>
+                        <form >
                             <div className='flex' style={{ marginRight: '530px' }}>
                                 <p onClick={incrementCounter} className='btn rounded-none mr-5 border-primary text-neutral' style={{ backgroundColor: 'white' }}><BsPlusLg></BsPlusLg></p>
                                 {/* <p >{counter}</p> */}
@@ -112,7 +121,12 @@ const Inventory = () => {
                                 <button disabled name='count' className='mt-3 lg:mr-5 mr-5 font-bold w-12' value={counter} id="" >{counter}</button>
 
                                 <p onClick={deccrementCounter} className='btn rounded-none text-4xl border-primary text-neutral' style={{ backgroundColor: 'white' }}>-</p>
-                                <button type='submit' className='ml-5 btn rounded-none font-bold border-primary text-neutral' style={{ backgroundColor: 'white' }}>Add to Cart</button>
+                                <div>
+                                 
+                                <label className='btn btn-orange text-white' 
+                         htmlFor="booking-modal" onClick={()=>setResult(product)}>Booking Order</label>
+                                </div>
+                               
                             </div>
                         </form>
 

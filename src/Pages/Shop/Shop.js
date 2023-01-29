@@ -28,7 +28,7 @@ const Shop = () => {
             
             <div className='mb-12 grid lg:grid-cols-4 md:grid-cols-3 justify-items-center gap-8 lg:mt-22 mt-16 lg:px-24 px-4'>
                 {
-                    products.map(product=> <div onClick={()=>handleGo(product._id)} className="card w- rounded-none bg-primary shadow-xl" style={{height:'410px'}}>
+                    products.map(product=> <div onClick={()=>handleGo(product._id)} className="card w- rounded-none bg-primary shadow-xl"  >
                     <figure><img className='hover:rotate-3' src={product.img} alt="Shoes" /></figure>
                     {/* rating */}
                     <div className="card-body hover:rotate-1">
@@ -43,7 +43,7 @@ const Shop = () => {
 
                         <h4 className='font-bold text-xl'>{product.name}</h4>
                         <p><span className='font-bold'>Price:</span> ${product.price}</p>
-                        <p><span className='font-bold'>details:</span> {product.details}</p>
+                       
                     </div>
                 </div>)
                 }

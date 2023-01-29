@@ -10,7 +10,7 @@ const AllOrders = () => {
     const [reload, setReload]=useState(false);
     const [user, loading] = useAuthState(auth);
     const [admin] = useAdmin(user);
-    const [users, setUsers] = useState([]);
+ 
  
     useEffect(() => {
         fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/order/admin')
@@ -32,12 +32,7 @@ const AllOrders = () => {
     }
 
     
-    useEffect(() => {
-        fetch('https://mb10-ecommerce-server-imranprogrammer10.vercel.app/shipping')
-          
-       
-            .then(res => res.json()).then(data =>  setUsers(data))
-    }, [reload])
+   
 
  
     if(loading){
@@ -72,18 +67,16 @@ const AllOrders = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">{order.name}</div>
+                                            <div className="font-bold">{order.Product}</div>
                                         </div>
                                     </div>
                                 </td>
 
                                 <td>{order.email}</td>
+                                <td>{order.phone}</td>
                                  
-                                {
-            users.map(user=>
-            <td>{user.phone}</td>
-            )
-        }
+                               
+        
                                      
                                
                                 <td>

@@ -115,6 +115,7 @@ const MyOrders = () => {
                         <tr>
                             <th>Product Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
                             <th>piece</th>
                             <th>Entry Date</th>
                             <th></th>
@@ -134,12 +135,13 @@ const MyOrders = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">{order.name}</div>
+                                            <div className="font-bold">{order.Product}</div>
                                         </div>
                                     </div>
                                 </td>
 
                                 <td>{order.email}</td>
+                                <td>{order.phone}</td>
                                 <td>
                                     <button className="">{order.count}</button>
                                 </td>
@@ -162,22 +164,7 @@ const MyOrders = () => {
 
                 </table>
             </div>
-            <div className='text-2xl'>
-                <div className="card-normal sm:w-fit bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h1>Billing Address</h1>
-                        <form onSubmit={handleSubmit}>
-                            <input onBlur={handleNameBlur} required type="text" name='name' placeholder="name" className="input-sm input-bordered input-primary w-full max-w-xs" />
-                            <input onBlur={handleEmailBlur} required type="text"  name='email'  placeholder="Email" className="input-sm input-bordered input-primary w-full max-w-xs mt-2" />
-                            <input onBlur={handlePhoneBlur}  required type="text" name='phone' placeholder="Phone" className="input-sm input-bordered input-primary w-full max-w-xs mt-2" />
-                            <input onBlur={handleAddressBlur} required type="text" name='address' placeholder="Location or City" className="input-sm input-bordered input-primary w-full max-w-xs mt-2" />
-                         
-                            
-                            <input className='btn btn-primary lg:w-80 mt-2' type="submit" value="SUBMIT" />
-                        </form>
-                    </div>
-                </div>
-            </div>
+         
         </div>
     );
                     };

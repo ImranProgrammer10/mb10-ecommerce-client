@@ -123,7 +123,7 @@ const Inventory = () => {
                                 <p onClick={deccrementCounter} className='btn rounded-none text-4xl border-primary text-neutral' style={{ backgroundColor: 'white' }}>-</p>
                                 <div>
                                  
-                                <label className='btn btn-orange text-white' 
+                                <label className='btn btn-orange text-white ml-5' 
                          htmlFor="booking-modal" onClick={()=>setResult(product)}>Booking Order</label>
                                 </div>
                                

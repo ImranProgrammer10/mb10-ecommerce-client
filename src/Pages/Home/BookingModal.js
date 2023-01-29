@@ -11,6 +11,7 @@ const BookingModal = ({result,setResult,product,counter}) => {
     const { id } = useParams();
     const [date,setDate]=useState(new Date());
   const [user,loading,error]=useAuthState(auth);
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   
 
@@ -75,9 +76,17 @@ const BookingModal = ({result,setResult,product,counter}) => {
       
      <input type="text" name="name"  disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
       <input type="email" name="email" disabled value={user?.email || ''}  className="input input-bordered w-full max-w-xs" />
-      <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+      <input type="text" name="phone" placeholder="Phone Number" value={phoneNumber} className="input input-bordered w-full max-w-xs"  onChange={(e) => setPhoneNumber(e.target.value)} />
+
       <input type="text" name="count" placeholder="piece" value={counter} className="input input-bordered w-full max-w-xs" />
-      <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+
+      {phoneNumber.length > 0 ? (
+       <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+      ) : (
+        <p>Please enter a phone number</p>
+      )}
+      
+ 
      </form>
    </div>
 </div>

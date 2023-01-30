@@ -1,2 +1,2 @@
 ###server link
-https://ancient-cove-16092.herokuapp.com/reviews
+https://mb10-ecommerce.web.app/

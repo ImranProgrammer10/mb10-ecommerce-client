@@ -1,2 +1,2 @@
 ###server link
-https://mb10-ecommerce.web.app/
+https://mb10-ecommerce-server.vercel.app/
